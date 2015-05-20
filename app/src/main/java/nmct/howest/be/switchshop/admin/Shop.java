@@ -12,6 +12,16 @@ public class Shop {
     private String uren;
     private String email;
 
+    public String getLocatie() {
+        return locatie;
+    }
+
+    public void setLocatie(String locatie) {
+        this.locatie = locatie;
+    }
+
+    private String locatie;
+
     public String getNaam() {
         return naam;
     }
@@ -65,7 +75,7 @@ public class Shop {
         super();
         this.email = emailShop;
     }
-    public Shop(String naam, String adres_extra, String adres, String gemeente, String uren, String email)
+    public Shop(String naam, String adres_extra, String adres, String gemeente, String uren, String email, String locatie)
     {
         this(email);
         this.naam = naam;
@@ -74,6 +84,7 @@ public class Shop {
         this.gemeente = gemeente;
         this.uren = uren;
         this.email = email;
+        this.locatie = locatie;
     }
 
 

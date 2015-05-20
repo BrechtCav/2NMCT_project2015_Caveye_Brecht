@@ -1,37 +1,28 @@
 package nmct.howest.be.switchshop;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.view.Window;
 
 
-public class SwitchMain extends Activity {
+public class SwitchMain extends Activity implements ShopFragment.OnShopFragmentListener, ShopDetailFragment.OnShopDetailsFragmentListener  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_switch_main);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new ShopFragment())
                     .commit();
         }
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_switch_main, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -47,20 +38,26 @@ public class SwitchMain extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    public void demandShopDetail(String sNaamShop) {
+        showShopDetailFragment(sNaamShop);
+    }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_switch_main, container, false);
-            return rootView;
-        }
+    private void showShopDetailFragment (String sNaamShop) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ShopDetailFragment fragment = ShopDetailFragment.newInstance(sNaamShop);
+        fragmentTransaction.replace(R.id.container, fragment, "ShopDetailFragment");
+        fragmentTransaction.addToBackStack("show_new_detail");
+        fragmentTransaction.commit();
+    }
+    @Override
+    public void onShowShop (String naam) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ShopMapFragment ShopMapFragment = nmct.howest.be.switchshop.ShopMapFragment.newShopMapFragment(naam);
+        fragmentTransaction.replace(R.id.container, ShopMapFragment);
+        fragmentTransaction.addToBackStack("ShopDetailFragment");
+        fragmentTransaction.commit();
     }
 }

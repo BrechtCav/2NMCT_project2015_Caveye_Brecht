@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nmct.howest.be.switchshop.ShopDetailFragment"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgShopDetail"
+        android:src="@drawable/genk"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/txbAdresExtra"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Switch Antwerpen Noorderlaan"
+        android:id="@+id/txtShopNaam"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="#ffc3d941"
+        android:layout_alignTop="@+id/imgShopDetail"
+        android:layout_alignStart="@+id/txbAdresExtra"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="31dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Adres"
+        android:id="@+id/txbAdresTitle"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#ffffffff"
+        android:layout_marginStart="13dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Shopping Center"
+        android:id="@+id/txbAdresExtra"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="2dp"
+        android:layout_alignBaseline="@+id/txbStraatNr"
+        android:layout_alignBottom="@+id/txbStraatNr"
+        android:layout_toEndOf="@+id/txbZipCity" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Noorderlaan 79"
+        android:id="@+id/txbStraatNr"
+        android:layout_below="@+id/txbAdresTitle"
+        android:layout_alignStart="@+id/txbAdresTitle"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="2030 Antwerpen"
+        android:id="@+id/txbZipCity"
+        android:layout_below="@+id/txbStraatNr"
+        android:layout_alignStart="@+id/txbStraatNr"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Openingsuren"
+        android:id="@+id/textView"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#ffffffff"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/txtShopNaam" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ma-Za:"
+        android:id="@+id/txbMVTitle"
+        android:layout_marginLeft="0dp"
+        android:layout_alignTop="@+id/txbAdresExtra"
+        android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Zo:"
+        android:id="@+id/txbZ"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/txbMVTitle"
+        android:layout_alignStart="@+id/txbMVTitle"
+        android:layout_marginTop="9dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kaart"
+        android:id="@+id/btnMap"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffc4da3d"
+        android:textSize="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/txbZipCity" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="10u - 18u"
+        android:id="@+id/txbMVuren"
+        android:layout_marginLeft="15dp"
+        android:layout_alignTop="@+id/txbMVTitle"
+        android:layout_toEndOf="@+id/txbMVTitle"
+        android:layout_marginStart="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Gesloten"
+        android:id="@+id/txbZuren"
+        android:layout_marginLeft="0dp"
+        android:layout_alignTop="@+id/txbZ"
+        android:layout_alignStart="@+id/txbMVuren" />
+
+</RelativeLayout>
