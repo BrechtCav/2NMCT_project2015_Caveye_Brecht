@@ -70,10 +70,10 @@ public class Shop {
         this.email = email;
     }
 
-    public Shop(String emailShop)
+    public Shop(String naam)
     {
         super();
-        this.email = emailShop;
+        this.naam = naam;
     }
     public Shop(String naam, String adres_extra, String adres, String gemeente, String uren, String email, String locatie)
     {
