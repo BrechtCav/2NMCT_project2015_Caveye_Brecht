@@ -90,7 +90,7 @@ public class ShopMapFragment extends Fragment {
                 case ConnectionResult.SUCCESS:
                     if (mapView != null) {
                         locationManager = ((LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE));
-                        Boolean network = locationManager.isProviderEnabled("network");
+                        Boolean network = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
                             try {
                                 Geocoder coder = new Geocoder(getActivity(), Locale.getDefault());
