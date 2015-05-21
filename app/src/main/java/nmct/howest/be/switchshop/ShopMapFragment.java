@@ -92,7 +92,6 @@ public class ShopMapFragment extends Fragment {
                         locationManager = ((LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE));
                         Boolean network = locationManager.isProviderEnabled("network");
 
-                        if (network){
                             try {
                                 Geocoder coder = new Geocoder(getActivity(), Locale.getDefault());
                                 List<Address> addresses;
@@ -109,10 +108,7 @@ public class ShopMapFragment extends Fragment {
                             catch (Exception ex) {
                                 System.out.println(ex);
                             }
-                        }
-                        else {
-                            Toast.makeText(getActivity(), "Shop niet beschikbaar", Toast.LENGTH_SHORT).show();
-                        }
+
                         googleMap = mapView.getMap();
                         googleMap.clear();
                         try{
