@@ -62,10 +62,10 @@ public class ShopMapFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_shop_map, container, false);
         mapView = (MapView) v.findViewById(R.id.mapShop);
+        setMapView(mapView);
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
 
-        setMapView(mapView);
 
         return v;
     }
@@ -125,7 +125,7 @@ public class ShopMapFragment extends Fragment {
 
                         googleMap.setIndoorEnabled(true);
                         googleMap.setMyLocationEnabled(true);
-                        googleMap.moveCamera(CameraUpdateFactory.zoomTo(16));
+                        googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
 
                         if (CENTER != null) {
                             googleMap.animateCamera(CameraUpdateFactory.newLatLng(CENTER), 1750, null);
