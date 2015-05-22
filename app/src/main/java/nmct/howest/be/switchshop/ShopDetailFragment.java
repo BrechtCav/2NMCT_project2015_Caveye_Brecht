@@ -93,7 +93,6 @@ public class ShopDetailFragment extends Fragment {
         txbAdresZipCity.setText(s.getGemeente());
         txbUren.setText(s.getUren());
 
-
         txbShopNaam.setText(s.getNaam());
 
         switch(s.getNaam())

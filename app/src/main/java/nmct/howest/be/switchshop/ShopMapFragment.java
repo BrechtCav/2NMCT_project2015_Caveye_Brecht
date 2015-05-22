@@ -62,9 +62,9 @@ public class ShopMapFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_shop_map, container, false);
         mapView = (MapView) v.findViewById(R.id.mapShop);
-        setMapView(mapView);
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
+        setMapView(mapView);
 
 
         return v;
@@ -82,6 +82,7 @@ public class ShopMapFragment extends Fragment {
     public void setMapView(MapView mapView)
     {
         this.mapView = mapView;
+        adresShop = currentShop.getAdres() + ", " + currentShop.getGemeente();
 
         try {
             MapsInitializer.initialize(getActivity());
@@ -90,23 +91,25 @@ public class ShopMapFragment extends Fragment {
                 case ConnectionResult.SUCCESS:
                     if (mapView != null) {
                         locationManager = ((LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE));
-                        Boolean network = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                        Boolean network = locationManager.isProviderEnabled("network");
 
                             try {
                                 Geocoder coder = new Geocoder(getActivity(), Locale.getDefault());
                                 List<Address> addresses;
 
-                                adresShop = currentShop.getAdres() + ", " + currentShop.getGemeente();
 
                                 addresses = coder.getFromLocationName(adresShop, 1);
 
-                                Address location = addresses.get(0);
+                                Address location = addresses.get(1);
 
                                 latitude = location.getLatitude();
                                 longitude = location.getLongitude();
+                                CENTER = new LatLng(latitude,longitude);
+                                Toast.makeText(getActivity(), adresShop , Toast.LENGTH_SHORT).show();
                             }
                             catch (Exception ex) {
                                 System.out.println(ex);
+                                Toast.makeText(getActivity(), adresShop , Toast.LENGTH_SHORT).show();
                             }
 
                         googleMap = mapView.getMap();
@@ -125,12 +128,11 @@ public class ShopMapFragment extends Fragment {
 
                         googleMap.setIndoorEnabled(true);
                         googleMap.setMyLocationEnabled(true);
-                        googleMap.moveCamera(CameraUpdateFactory.zoomTo(15));
+                        googleMap.moveCamera(CameraUpdateFactory.zoomTo(16));
 
                         if (CENTER != null) {
                             googleMap.animateCamera(CameraUpdateFactory.newLatLng(CENTER), 1750, null);
                         }
-
                         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                     }
                     break;
