@@ -100,7 +100,7 @@ public class ShopMapFragment extends Fragment {
 
                                 addresses = coder.getFromLocationName(adresShop, 1);
 
-                                Address location = addresses.get(1);
+                                Address location = addresses.get(0);
 
                                 latitude = location.getLatitude();
                                 longitude = location.getLongitude();
